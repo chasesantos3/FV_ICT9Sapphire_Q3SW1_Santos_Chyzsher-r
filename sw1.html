@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Converter</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #fa96f3;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .result {
+            font-size: 2rem;
+            color: black;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .btn-custom {
+            margin: 5px;
+            font-weight: bold;
+            color: white;
+            background-color: #f76da0;
+        }
+        img {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://i.pinimg.com/736x/73/d1/80/73d180ae1340394d28decc240762ed2e.jpg" width="100">
+ <h1>Click the buttons below to convert</h1>
+        <h2><span id="amount">250</span> Pesos to other currencies</h2>
+        <p class="result" id="conversionResult">--</p>
+
+        <button class="btn btn-secondary btn-custom" onclick="convertCurrency('Pound')">Pound</button>
+        <button class="btn btn-danger btn-custom" onclick="convertCurrency('Yen')">Yen</button>
+        <button class="btn btn-success btn-custom" onclick="reset()">Refresh</button>
+    </div>
+
+    <script>
+       
+       const rates = {
+    Pound: 0.014,  
+    Yen: 2.32,     
+};
+
+function convertCurrency(currency) {
+    let pesos = 100; // Fixed amount in pesos
+    let result = pesos * rates[currency]; // Formula: PHP * Rate
+    document.getElementById('conversionResult').innerText = `${result.toFixed(2)} ${currency}`;
+}
+
+function reset() {
+    document.getElementById('conversionResult').innerText = "--";
+}
+
+    
+    </script>
+</body>
+</html>
+
